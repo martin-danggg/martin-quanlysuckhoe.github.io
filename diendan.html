@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diễn Đàn Hỏi Đáp Bác Sĩ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f0f9ff; }
+        header { background-color: #2a9d8f; color: white; padding: 1.5rem; text-align: center; height: 7.5rem; }
+        nav { background-color: #264653; padding: 1rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s; }
+        nav a:hover { background-color: #2a9d8f; }
+        .forum-dashboard { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .question-section { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            margin: 2rem 0; 
+        }
+        .question-card {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .question-card h3 { color: #2a9d8f; margin-bottom: 1rem; }
+        .question-card .user, .question-card .doctor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .question-card .user img, .question-card .doctor img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+        .question-card .user span, .question-card .doctor span {
+            font-weight: bold;
+        }
+        .question-card .user span { color: #264653; }
+        .question-card .doctor span { color: #2a9d8f; }
+        .question-card p { margin-left: 50px; }
+        footer {
+            background-color: #264653;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-content div {
+            max-width: 300px;
+        }
+        .footer-content h3 {
+            color: #2a9d8f;
+            margin-bottom: 1rem;
+        }
+        .color-white {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DIỄN ĐÀN HỎI ĐÁP BÁC SĨ</h1>
+        <p>Giải đáp thắc mắc sức khỏe cùng chuyên gia</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+            <li><a href="./theodoisuckhoe.html"><i class="fas fa-heartbeat"></i> Theo dõi sức khỏe</a></li>
+            <li><a href="./benhthuonggap.html"><i class="fas fa-file-medical"></i> Bệnh thường gặp</a></li>
+            <li><a href="./diendan.html"><i class="fas fa-comments"></i> Diễn đàn</a></li>
+            <li><a href="./lienhe.html"><i class="fas fa-book-medical"></i> Liên hệ</a></li>
+        </ul>
+    </nav>
+
+    <main class="forum-dashboard">
+        <!-- Phần câu hỏi thường gặp -->
+        <section class="question-section" id="top-questions">
+            <h2><i class="fas fa-question-circle"></i> 10 CÂU HỎI THƯỜNG GẶP</h2>
+
+            <!-- Câu hỏi 1 -->
+            <div class="question-card">
+                <h3>1. Làm thế nào để giảm cân an toàn?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi muốn giảm cân nhưng không biết bắt đầu từ đâu. Xin bác sĩ tư vấn.</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Trần Minh</span>
+                </div>
+                <p>Để giảm cân an toàn, bạn nên kết hợp chế độ ăn uống lành mạnh và tập thể dục đều đặn. Hạn chế đồ ngọt, tăng cường rau xanh và uống đủ nước.</p>
+            </div>
+
+            <!-- Câu hỏi 2 -->
+            <div class="question-card">
+                <h3>2. Cách phòng ngừa bệnh tim mạch?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi có tiền sử gia đình bị bệnh tim. Làm thế nào để phòng ngừa?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Nguyễn Hà</span>
+                </div>
+                <p>Bạn nên duy trì lối sống lành mạnh: ăn ít chất béo, tập thể dục 30 phút mỗi ngày, và kiểm tra sức khỏe định kỳ.</p>
+            </div>
+
+            <!-- Câu hỏi 3 -->
+            <div class="question-card">
+                <h3>3. Triệu chứng của bệnh tiểu đường?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi thường xuyên khát nước và đi tiểu nhiều. Đó có phải là dấu hiệu của bệnh tiểu đường không?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Lê Anh</span>
+                </div>
+                <p>Đó có thể là triệu chứng của bệnh tiểu đường. Bạn nên đi khám và xét nghiệm đường huyết để có kết quả chính xác.</p>
+            </div>
+
+            <!-- Câu hỏi 4 -->
+            <div class="question-card">
+                <h3>4. Cách giảm căng thẳng hiệu quả?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi thường xuyên bị căng thẳng do công việc. Làm thế nào để giảm căng thẳng?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Phạm Linh</span>
+                </div>
+                <p>Bạn nên tập yoga, thiền, hoặc đi bộ 30 phút mỗi ngày. Hãy dành thời gian nghỉ ngơi và ngủ đủ giấc.</p>
+            </div>
+
+            <!-- Câu hỏi 5 -->
+            <div class="question-card">
+                <h3>5. Cách chăm sóc da mụn?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Da tôi bị mụn nhiều. Xin bác sĩ tư vấn cách chăm sóc da hiệu quả.</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Hoàng Mai</span>
+                </div>
+                <p>Bạn nên rửa mặt 2 lần/ngày với sữa rửa mặt dịu nhẹ, tránh sờ tay lên mặt, và sử dụng kem dưỡng ẩm phù hợp.</p>
+            </div>
+
+            <!-- Câu hỏi 6 -->
+            <div class="question-card">
+                <h3>6. Cách tăng cường hệ miễn dịch?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi hay bị ốm vặt. Làm thế nào để tăng cường hệ miễn dịch?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Vũ Hải</span>
+                </div>
+                <p>Bạn nên ăn nhiều trái cây, rau xanh, uống đủ nước, và ngủ đủ 7-8 tiếng mỗi đêm. Tập thể dục thường xuyên cũng giúp tăng cường miễn dịch.</p>
+            </div>
+
+            <!-- Câu hỏi 7 -->
+            <div class="question-card">
+                <h3>7. Cách giảm đau lưng?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi bị đau lưng do ngồi làm việc nhiều. Có cách nào giảm đau không?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Đỗ Nam</span>
+                </div>
+                <p>Bạn nên điều chỉnh tư thế ngồi, tập các bài tập kéo giãn cơ lưng, và massage nhẹ nhàng. Nếu đau kéo dài, hãy đi khám bác sĩ.</p>
+            </div>
+
+            <!-- Câu hỏi 8 -->
+            <div class="question-card">
+                <h3>8. Cách phòng ngừa bệnh cảm cúm?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi hay bị cảm cúm khi thời tiết thay đổi. Làm thế nào để phòng ngừa?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Nguyễn Lan</span>
+                </div>
+                <p>Bạn nên rửa tay thường xuyên, giữ ấm cơ thể, và tiêm phòng cúm hàng năm.</p>
+            </div>
+
+            <!-- Câu hỏi 9 -->
+            <div class="question-card">
+                <h3>9. Cách cải thiện giấc ngủ?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi thường xuyên mất ngủ. Xin bác sĩ tư vấn cách cải thiện giấc ngủ.</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Trần Hương</span>
+                </div>
+                <p>Bạn nên tránh uống cà phê vào buổi tối, tạo không gian ngủ thoải mái, và tập thói quen đi ngủ đúng giờ.</p>
+            </div>
+
+            <!-- Câu hỏi 10 -->
+            <div class="question-card">
+                <h3>10. Cách phòng ngừa bệnh loãng xương?</h3>
+                <div class="user">
+                    <img src="./forum_image/user_img_forum.jpg" alt="User">
+                    <span>Người dùng</span>
+                </div>
+                <p>Tôi nghe nói phụ nữ dễ bị loãng xương. Làm thế nào để phòng ngừa?</p>
+                <div class="doctor">
+                    <img src="./forum_image/doctor_img_forum.jpg" alt="Doctor">
+                    <span>Bác sĩ Lê Minh</span>
+                </div>
+                <p>Bạn nên bổ sung canxi và vitamin D, tập thể dục thường xuyên, và kiểm tra mật độ xương định kỳ.</p>
+            </div>
+        </section>
+
+        <!-- Phần đặt câu hỏi -->
+        <section class="question-section" id="ask-question">
+            <h2><i class="fas fa-comment-medical"></i> ĐẶT CÂU HỎI</h2>
+            <form id="askQuestionForm">
+                <div class="input-group">
+                    <label for="question">Câu hỏi của bạn:</label><br>
+                    <textarea id="question" rows="5" cols = "70" placeholder="Nhập câu hỏi của bạn..."></textarea>
+                </div>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Gửi câu hỏi</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</h3>
+                <p>Địa chỉ: 123 Đường Lê Thánh Tôn, Quận Thuận Hóa, Thành phố Huế, Việt Nam</p>
+                <p>Email: support@theodoisuckhoe.com</p>
+                <p>Điện thoại: 093 478 2395</p>
+            </div>
+            <div>
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="./index.html" style = "color:#f0f9ff">Trang chủ</a></li>
+                    <li><a href="./theodoisuckhoe.html" style = "color:#f0f9ff">Theo dõi sức khỏe</a></li>
+                    <li><a href="./benhthuonggap.html" style = "color:#f0f9ff">Bệnh thường gặp</a></li>
+                    <li><a href="./diendan.html" style = "color:#f0f9ff">Diễn đàn</a></li>
+                    <li><a href="./lienhe.html" style = "color:#f0f9ff">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Hệ Thống Theo Dõi Sức Khỏe Cá Nhân. All rights reserved.</p>
+    </footer>
+    <script>
+        document.getElementById("askQuestionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const question = document.getElementById("question").value.trim();
+            if (question === "") {
+                alert("Vui lòng nhập câu hỏi của bạn.");
+                return;
+            }
+            alert("Câu hỏi của bạn đã được gửi thành công. Bác sĩ sẽ phản hồi sớm nhất!");
+            document.getElementById("askQuestionForm").reset();
+        });
+    </script>
+       <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4928715,4,8,210,40,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4928715&101" alt="" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
+</body>
+</html>

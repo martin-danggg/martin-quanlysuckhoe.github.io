@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Hệ - Tìm Kiếm Phòng Khám</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f0f9ff; }
+        header { background-color: #2a9d8f; color: white; padding: 1.5rem; text-align: center; height: 7.5rem; }
+        nav { background-color: #264653; padding: 1rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s; }
+        nav a:hover { background-color: #2a9d8f; }
+        .contact-container { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .clinic-map { margin-bottom: 2rem; }
+        .clinic-map iframe { width: 100%; height: 400px; border: none; border-radius: 10px; }
+        .clinic-info { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 2rem; }
+        .clinic-info h3 { color: #2a9d8f; margin-bottom: 1rem; }
+        .clinic-info p { margin-bottom: 0.5rem; }
+        .clinic-info a { color: #2a9d8f; text-decoration: none; }
+        .clinic-info a:hover { text-decoration: underline; }
+        .reviews { background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .review-item { margin-bottom: 1.5rem; }
+        .review-item h4 { color: #2a9d8f; margin-bottom: 0.5rem; }
+        .review-item p { margin-bottom: 0.5rem; }
+        .review-item img{ width:50px; height: 50px; }
+        .stars { display: flex; gap: 0.2rem; }
+        .stars img { width: 20px; height: 20px; }
+        footer {
+            background-color: #264653;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-content div {
+            max-width: 300px;
+        }
+        .footer-content h3 {
+            color: #2a9d8f;
+            margin-bottom: 1rem;
+        }
+        .color-white {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LIÊN HỆ - TÌM KIẾM PHÒNG KHÁM</h1>
+        <p>Kết nối với các phòng khám uy tín tại Việt Nam</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+            <li><a href="./theodoisuckhoe.html"><i class="fas fa-heartbeat"></i> Theo dõi sức khỏe</a></li>
+            <li><a href="./benhthuonggap.html"><i class="fas fa-file-medical"></i> Bệnh thường gặp</a></li>
+            <li><a href="./diendan.html"><i class="fas fa-comments"></i> Diễn đàn</a></li>
+            <li><a href="./lienhe.html"><i class="fas fa-book-medical"></i> Liên hệ</a></li>
+        </ul>
+    </nav>
+    <main class="contact-container">
+        <section class="clinic-map">
+            <h2>Bản đồ các phòng khám</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.319614711837!2d106.664085315338!3d10.78683789231467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ed2392c44df%3A0xd2ecb62e0d050fe9!2sFPT%20Hospital!5e0!3m2!1sen!2s!4v1633084800000!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </section>
+
+        <section class="clinic-info">
+            <h2>Thông tin các phòng khám</h2>
+            <div class="clinic-info-item">
+                <h3>Phòng khám Đa khoa Quốc tế Vinmec</h3>
+                <p><strong>Địa chỉ:</strong> 458 Minh Khai, Vĩnh Tuy, Hai Bà Trưng, Hà Nội</p>
+                <p><strong>Số điện thoại:</strong> 024 3974 3556</p>
+                <p><strong>Email:</strong> info@vinmec.com</p>
+                <p><strong>Website:</strong> <a href="https://www.vinmec.com" target="_blank">www.vinmec.com</a></p>
+            </div>
+            <div class="clinic-info-item">
+                <h3>Bệnh viện Đa khoa Quốc tế Thu Cúc</h3>
+                <p><strong>Địa chỉ:</strong> 286 Thụy Khuê, Tây Hồ, Hà Nội</p>
+                <p><strong>Số điện thoại:</strong> 024 3728 0888</p>
+                <p><strong>Email:</strong> contact@thucuchospital.vn</p>
+                <p><strong>Website:</strong> <a href="https://www.thucuchospital.vn" target="_blank">www.thucuchospital.vn</a></p>
+            </div>
+            <div class="clinic-info-item">
+                <h3>Phòng khám Đa khoa Hồng Ngọc</h3>
+                <p><strong>Địa chỉ:</strong> 55 Yên Ninh, Ba Đình, Hà Nội</p>
+                <p><strong>Số điện thoại:</strong> 024 3927 5568</p>
+                <p><strong>Email:</strong> info@hongngochospital.vn</p>
+                <p><strong>Website:</strong> <a href="https://www.hongngochospital.vn" target="_blank">www.hongngochospital.vn</a></p>
+            </div>
+        </section>
+
+        <section class="reviews">
+            <h2>Đánh giá từ người dùng</h2>
+            <div class="review-item">
+                <img src="./forum_image/user_img_forum.jpg" alt="Nguyễn Văn A">
+                <div>
+                    <h4>Nguyễn Văn A <span>(25 tuổi)</span></h4>
+                    <div class="stars">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                    </div>
+                    <p>Phòng khám Vinmec rất chuyên nghiệp, bác sĩ tận tâm, cơ sở vật chất hiện đại. Tôi rất hài lòng với dịch vụ ở đây.</p>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="./forum_image/user_img_forum.jpg" alt="Trần Thị B">
+                <div>
+                    <h4>Trần Thị B <span>(32 tuổi)</span></h4>
+                    <div class="stars">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                    </div>
+                    <p>Bệnh viện Thu Cúc có đội ngũ y bác sĩ giỏi, thái độ phục vụ rất tốt. Tôi đã điều trị ở đây và cảm thấy rất yên tâm.</p>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="./forum_image/user_img_forum.jpg" alt="Nguyễn Văn A">
+                <div>
+                    <h4>Phạm Trần Khánh C <span>(34 tuổi)</span></h4>
+                    <div class="stars">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                    </div>
+                    <p>Vinmec là phòng khám tốt nhất mà tôi từng đến. Bác sĩ rất giỏi và tận tâm, tôi sẽ giới thiệu cho bạn bè và người thân.</p>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="./forum_image/user_img_forum.jpg" alt="Nguyễn Văn A">
+                <div>
+                    <h4>Đỗ Thị D <span>(30 tuổi)</span></h4>
+                    <div class="stars">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                    </div>
+                    <p>Phòng khám Hồng Ngọc rất sạch sẽ, dịch vụ nhanh chóng. Tôi đã khám bệnh ở đây và rất hài lòng với kết quả điều trị.</p>
+                </div>
+            </div>
+            <div class="review-item">
+                <img src="./forum_image/user_img_forum.jpg" alt="Nguyễn Văn A">
+                <div>
+                    <h4>Dương Nguyễn Bảo E <span>(2 tuổi)</span></h4>
+                    <div class="stars">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                        <img src="./contact_image/star_img_contact.jpg" alt="star">
+                    </div>
+                    <p>PThu Cúc là bệnh viện tuyệt vời, dịch vụ chăm sóc bệnh nhân rất chu đáo. Tôi rất hài lòng với sự chuyên nghiệp của đội ngũ y tế.</p>
+                </div>
+            </div>
+            <!-- Thêm các nhận xét khác tương tự -->
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</h3>
+                <p>Địa chỉ: 123 Đường Lê Thánh Tôn, Quận Thuận Hóa, Thành phố Huế, Việt Nam</p>
+                <p>Email: support@theodoisuckhoe.com</p>
+                <p>Điện thoại: 093 478 2395</p>
+            </div>
+            <div>
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="./index.html" style = "color:#f0f9ff">Trang chủ</a></li>
+                    <li><a href="./theodoisuckhoe.html" style = "color:#f0f9ff">Theo dõi sức khỏe</a></li>
+                    <li><a href="./benhthuonggap.html" style = "color:#f0f9ff">Bệnh thường gặp</a></li>
+                    <li><a href="./diendan.html" style = "color:#f0f9ff">Diễn đàn</a></li>
+                    <li><a href="./lienhe.html" style = "color:#f0f9ff">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Hệ Thống Theo Dõi Sức Khỏe Cá Nhân. All rights reserved.</p>
+    </footer>
+       <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4928715,4,8,210,40,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4928715&101" alt="" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
+</body>
+</html>
+

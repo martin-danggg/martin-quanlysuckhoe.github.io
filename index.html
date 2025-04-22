@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { 
+            background-color: #f0f9ff; 
+            background-image: url('./bg_image/bg_img_home.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.7);
+            z-index: -1;
+        }
+        header { background-color: #2a9d8f; color: white; padding: 1.5rem; text-align: center; height: 7.5rem; }
+        nav { 
+            background-color: #264653; 
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 1rem; 
+            margin: 0;
+            padding: 0;
+        }
+        nav a { 
+            color: white; 
+            text-decoration: none; 
+            padding: 0.5rem 1rem; 
+            border-radius: 5px; 
+            transition: all 0.3s; 
+            white-space: nowrap;
+        }
+        nav a:hover { background-color: #2a9d8f; }
+        .health-dashboard { padding: 2rem; max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+        .welcome-section, .about-section, .mission-section, .achievements-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+        }
+        .welcome-section h2, .about-section h2, .mission-section h2, .achievements-section h2 {
+            color: #2a9d8f;
+            margin-bottom: 1.5rem;
+        }
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+        .achievement-card {
+            background: #e9f5f4;
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+        .achievement-card h3 {
+            color: #2a9d8f;
+            margin-bottom: 0.5rem;
+        }
+        footer {
+            background-color: rgba(38, 70, 83, 0.9);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-content div {
+            max-width: 300px;
+        }
+        .footer-content h3 {
+            color: #2a9d8f;
+            margin-bottom: 1rem;
+        }
+        .color-white {
+            color: white;
+        }
+        
+        /* CSS cho thanh tìm kiếm */
+        .search-container {
+            position: absolute;
+            right: 20px;
+            width: 250px;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 8px 15px 8px 35px;
+            border: 1px solid #333;
+            border-radius: 20px;
+            font-size: 14px;
+            outline: none;
+            background-color: white;
+            color: #333;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #555;
+            font-size: 14px;
+        }
+        
+        .search-hint {
+            position: absolute;
+            left: 35px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+            font-size: 13px;
+        }
+        
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .search-results.show {
+            display: block;
+        }
+        
+        .search-result-item {
+            padding: 8px 15px;
+            cursor: pointer;
+            border-bottom: 1px solid #eee;
+            transition: background-color 0.2s;
+            font-size: 14px;
+        }
+        
+        .search-result-item:hover {
+            background-color: #f0f9ff;
+        }
+        
+        .search-result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .google-search-item {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            color: #1a73e8;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .no-results {
+            padding: 10px 15px;
+            color: #666;
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding-bottom: 1.5rem;
+            }
+            .nav-container {
+                flex-direction: column;
+            }
+            .nav-menu {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .search-container {
+                position: relative;
+                right: auto;
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HỆ THỐNG THEO DÕI SỨC KHỎE CÁ NHÂN</h1>
+        <p>Quản lý sức khỏe thông minh</p>
+        <div style= "float: right">
+            <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+            <!-- Histats.com  START  (aync)-->
+            <script type="text/javascript">var _Hasync= _Hasync|| [];
+            _Hasync.push(['Histats.start', '1,4928715,4,8,210,40,00011111']);
+            _Hasync.push(['Histats.fasi', '1']);
+            _Hasync.push(['Histats.track_hits', '']);
+            (function() {
+            var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+            hs.src = ('//s10.histats.com/js15_as.js');
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+            })();</script>
+            <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4928715&101" alt="" border="0"></a></noscript>
+            <!-- Histats.com  END  -->
+        </div>
+    </header>
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="./index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+                <li><a href="./theodoisuckhoe.html"><i class="fas fa-heartbeat"></i> Theo dõi sức khỏe</a></li>
+                <li><a href="./benhthuonggap.html"><i class="fas fa-file-medical"></i> Bệnh thường gặp</a></li>
+                <li><a href="./diendan.html"><i class="fas fa-comments"></i> Diễn đàn</a></li>
+                <li><a href="./lienhe.html"><i class="fas fa-book-medical"></i> Liên hệ</a></li>
+            </ul>
+            
+            <!-- Thanh tìm kiếm nằm bên phải -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search search-icon"></i>
+                    <span class="search-hint">Bạn muốn tìm bệnh lí nào?</span>
+                    <input type="text" class="search-input" id="searchInput" placeholder="">
+                    <div class="search-results" id="searchResults"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="health-dashboard">
+        <!-- Các section nội dung khác giữ nguyên -->
+        <section class="welcome-section">
+            <h2><i class="fas fa-handshake"></i> CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG THEO DÕI SỨC KHỎE CÁ NHÂN</h2>
+            <p>Chúng tôi tự hào là một trong những hệ thống theo dõi sức khỏe hàng đầu, giúp bạn quản lý và cải thiện sức khỏe một cách hiệu quả. Với công nghệ tiên tiến và đội ngũ chuyên gia giàu kinh nghiệm, chúng tôi cam kết mang đến cho bạn những giải pháp sức khỏe tốt nhất.</p>
+        </section>
+
+        <section class="about-section">
+            <h2><i class="fas fa-info-circle"></i> GIỚI THIỆU VỀ TRANG WEB</h2>
+            <p>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân là nền tảng trực tuyến giúp bạn theo dõi và quản lý sức khỏe một cách toàn diện. Chúng tôi cung cấp các công cụ theo dõi sức khỏe, thông tin về bệnh thường gặp, và diễn đàn hỏi đáp với các chuyên gia y tế.</p>
+        </section>
+
+        <section class="mission-section">
+            <h2><i class="fas fa-bullseye"></i> Ý NGHĨA VÀ SỨ MỆNH</h2>
+            <p>Sứ mệnh của chúng tôi là giúp mọi người có thể dễ dàng tiếp cận và quản lý sức khỏe của mình một cách hiệu quả. Chúng tôi tin rằng sức khỏe là tài sản quý giá nhất, và việc theo dõi sức khỏe thường xuyên sẽ giúp bạn phòng ngừa bệnh tật và sống một cuộc sống hạnh phúc hơn.</p>
+        </section>
+
+        <section class="achievements-section">
+            <h2><i class="fas fa-trophy"></i> THÀNH TÍCH CỦA CHÚNG TÔI</h2>
+            <div class="achievements-grid">
+                <div class="achievement-card">
+                    <h3>95%</h3>
+                    <p>Người dùng hài lòng</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>500,000+</h3>
+                    <p>Người dùng đăng ký</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>98%</h3>
+                    <p>Độ chính xác trong theo dõi sức khỏe</p>
+                </div>
+                <div class="achievement-card">
+                    <h3>24/7</h3>
+                    <p>Hỗ trợ khách hàng</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</h3>
+                <p>Địa chỉ: 123 Đường Lê Thánh Tôn, Quận Thuận Hóa, Thành phố Huế, Việt Nam</p>
+                <p>Email: support@theodoisuckhoe.com</p>
+                <p>Điện thoại: 093 478 2395</p>
+            </div>
+            <div>
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="./index.html" style="color:#f0f9ff">Trang chủ</a></li>
+                    <li><a href="./theodoisuckhoe.html" style="color:#f0f9ff">Theo dõi sức khỏe</a></li>
+                    <li><a href="./benhthuonggap.html" style="color:#f0f9ff">Bệnh thường gặp</a></li>
+                    <li><a href="./diendan.html" style="color:#f0f9ff">Diễn đàn</a></li>
+                    <li><a href="./lienhe.html" style="color:#f0f9ff">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Hệ Thống Theo Dõi Sức Khỏe Cá Nhân. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Danh sách các bệnh thường gặp với ID tương ứng trong trang benhthuonggap.html
+        const diseases = [
+            { name: "Cảm lạnh", id: "1.1" },
+            { name: "Cúm", id: "1.2" },
+            { name: "Viêm họng do virus", id: "1.3" },
+            { name: "Viêm họng do liên cầu khuẩn", id: "2.1" },
+            { name: "Nhiễm trùng đường tiết niệu", id: "2.2" },
+            { name: "Ho gà", id: "2.3" },
+            { name: "Viêm phế quản", id: "3.1" },
+            { name: "Nhiễm trùng xoang", id: "3.2" },
+            { name: "Viêm tai giữa", id: "3.3" },
+            { name: "Đau dạ dày", id: "4.1" },
+            { name: "Viêm da", id: "4.2" }
+        ];
+        
+        // Hàm loại bỏ dấu tiếng Việt để tìm kiếm không dấu
+        function removeAccents(str) {
+            return str.normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '')
+                .replace(/đ/g, 'd').replace(/Đ/g, 'D')
+                .toLowerCase();
+        }
+        
+        // Lấy các phần tử DOM
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const searchHint = document.querySelector('.search-hint');
+        
+        // Xử lý sự kiện khi nhập vào ô tìm kiếm
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.trim();
+            
+            // Ẩn hint khi có nội dung nhập vào
+            searchHint.style.display = searchTerm.length > 0 ? 'none' : 'block';
+            
+            // Hiển thị kết quả tìm kiếm
+            showSearchResults(searchTerm);
+        });
+        
+        // Xử lý khi click vào ô tìm kiếm
+        searchInput.addEventListener('focus', function() {
+            const searchTerm = this.value.trim();
+            if (searchTerm.length > 0) {
+                showSearchResults(searchTerm);
+            }
+            searchHint.style.display = 'none';
+        });
+        
+        // Xử lý khi click ra ngoài ô tìm kiếm
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchResults.classList.remove('show');
+                if (searchInput.value.trim().length === 0) {
+                    searchHint.style.display = 'block';
+                }
+            }
+        });
+        
+        // Hiển thị kết quả tìm kiếm
+        function showSearchResults(searchTerm) {
+            searchResults.innerHTML = '';
+            
+            if (searchTerm.length === 0) {
+                searchResults.classList.remove('show');
+                return;
+            }
+            
+            const searchTermNoAccent = removeAccents(searchTerm);
+            const matchedDiseases = diseases.filter(disease => {
+                const diseaseNoAccent = removeAccents(disease.name);
+                return diseaseNoAccent.includes(searchTermNoAccent) || 
+                       disease.name.toLowerCase().includes(searchTerm.toLowerCase());
+            });
+            
+            if (matchedDiseases.length > 0) {
+                matchedDiseases.forEach(disease => {
+                    const item = document.createElement('div');
+                    item.className = 'search-result-item';
+                    item.textContent = disease.name;
+                    item.addEventListener('click', () => {
+                        // Chuyển đến trang bệnh thường gặp và cuộn đến bệnh tương ứng
+                        window.location.href = `./benhthuonggap.html#${disease.id}`;
+                    });
+                    searchResults.appendChild(item);
+                });
+            } else {
+                // Hiển thị thông báo không có kết quả
+                const noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.textContent = 'Không tìm thấy bệnh phù hợp';
+                searchResults.appendChild(noResults);
+            }
+            
+            // Thêm tùy chọn tìm kiếm Google
+            const googleItem = document.createElement('div');
+            googleItem.className = 'search-result-item google-search-item';
+            googleItem.innerHTML = `<i class="fas fa-search"></i> Tìm kiếm Google cho "${searchTerm}"`;
+            googleItem.addEventListener('click', () => {
+                searchOnGoogle(searchTerm);
+            });
+            searchResults.appendChild(googleItem);
+            
+            searchResults.classList.add('show');
+        }
+        
+        // Hàm tìm kiếm trên Google
+        function searchOnGoogle(query) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query + ' bệnh')}`, '_blank');
+        }
+    </script>
+</body>
+</html>

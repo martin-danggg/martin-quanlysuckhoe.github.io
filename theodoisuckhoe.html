@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theo Dõi Sức Khỏe Chi Tiết</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f0f9ff; }
+        header { background-color: #2a9d8f; color: white; padding: 1.5rem; text-align: center; height: 7.5rem; }
+        nav { background-color: #264653; padding: 1rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s; }
+        nav a:hover { background-color: #2a9d8f; }
+        .health-dashboard { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .health-check-section { 
+            background: white; 
+            padding: 2rem; 
+            border-radius: 10px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            margin: 2rem 0; 
+        }
+        .input-group { 
+            margin-bottom: 1.5rem; 
+            display: grid; 
+            grid-template-columns: 1fr 2fr; 
+            align-items: center; 
+            gap: 1rem; 
+        }
+        .input-group-column {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        input, select, textarea { 
+            padding: 0.8rem; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            width: 100%; 
+        }
+        button { 
+            background-color: #2a9d8f; 
+            color: white; 
+            padding: 0.8rem 1.5rem; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background-color 0.3s; 
+        }
+        button:hover { background-color: #22867a; }
+        .result { 
+            margin-top: 1.5rem; 
+            padding: 1rem; 
+            background-color: #e9f5f4; 
+            border-radius: 5px; 
+            text-align: center; 
+        }
+        .result h3 { color: #2a9d8f; }
+        footer {
+            background-color: #264653;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-content div {
+            max-width: 300px;
+        }
+        .footer-content h3 {
+            color: #2a9d8f;
+            margin-bottom: 1rem;
+        }
+        .color-white {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>THEO DÕI SỨC KHỎE CHI TIẾT</h1>
+        <p>Giám sát toàn diện - Cải thiện sức khỏe</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+            <li><a href="./theodoisuckhoe.html"><i class="fas fa-heartbeat"></i> Theo dõi sức khỏe</a></li>
+            <li><a href="./benhthuonggap.html"><i class="fas fa-file-medical"></i> Bệnh thường gặp</a></li>
+            <li><a href="./diendan.html"><i class="fas fa-comments"></i> Diễn đàn</a></li>
+            <li><a href="./lienhe.html"><i class="fas fa-book-medical"></i> Liên hệ</a></li>
+        </ul> 
+    </nav>
+    <main class="health-dashboard">
+        <!-- Phần tính BMI -->
+        <section class="health-check-section">
+            <h2><i class="fas fa-weight"></i> Tính Chỉ Số BMI</h2>
+            <form id="bmiForm">
+                <div class="input-group">
+                    <label for="height">Chiều cao (cm):</label>
+                    <input type="number" id="height" placeholder="Ví dụ: 170" required>
+                </div>
+                <div class="input-group">
+                    <label for="weight">Cân nặng (kg):</label>
+                    <input type="number" id="weight" placeholder="Ví dụ: 65" required>
+                </div>
+                <button type="submit">Tính BMI</button>
+            </form>
+            <div class="result" id="bmiResult"></div>
+        </section>
+
+        <!-- Phần tính BMR -->
+        <section class="health-check-section">
+            <h2><i class="fas fa-fire"></i> Tính Chỉ Số BMR</h2>
+            <form id="bmrForm">
+                <div class="input-group">
+                    <label for="age">Tuổi:</label>
+                    <input type="number" id="age" placeholder="Ví dụ: 25" required>
+                </div>
+                <div class="input-group">
+                    <label for="gender">Giới tính:</label>
+                    <select id="gender" required>
+                        <option value="male">Nam</option>
+                        <option value="female">Nữ</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="weightBMR">Cân nặng (kg):</label>
+                    <input type="number" id="weightBMR" placeholder="Ví dụ: 65" required>
+                </div>
+                <div class="input-group">
+                    <label for="heightBMR">Chiều cao (cm):</label>
+                    <input type="number" id="heightBMR" placeholder="Ví dụ: 170" required>
+                </div>
+                <button type="submit">Tính BMR</button>
+            </form>
+            <div class="result" id="bmrResult"></div>
+        </section>
+
+        <!-- Phần tính nhịp tim nghỉ ngơi -->
+        <section class="health-check-section">
+            <h2><i class="fas fa-heartbeat"></i> Tính Nhịp Tim Tối Đa</h2>
+            <form id="rhrForm">
+                <div class="input-group">
+                    <label for="ageRHR">Tuổi:</label>
+                    <input type="number" id="ageRHR" placeholder="Ví dụ: 25" required>
+                </div>
+                <button type="submit">Tính Nhịp Tim Tối Đa</button>
+            </form>
+            <div class="result" id="rhrResult"></div>
+        </section>
+
+        <!-- Phần bài kiểm tra EQ -->
+        <section class="health-check-section">
+            <h2><i class="fas fa-brain"></i> Bài Kiểm Tra EQ</h2>
+            <form id="eqForm">
+                <div class="input-group">
+                    <label for="eqQuestion1">1. Bạn có dễ dàng nhận biết cảm xúc của người khác không?</label>
+                    <select id="eqQuestion1" required>
+                        <option value="1">Rất hiếm khi</option>
+                        <option value="2">Thỉnh thoảng</option>
+                        <option value="3">Thường xuyên</option>
+                        <option value="4">Luôn luôn</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="eqQuestion2">2. Bạn có kiểm soát được cảm xúc của mình trong tình huống căng thẳng không?</label>
+                    <select id="eqQuestion2" required>
+                        <option value="1">Rất hiếm khi</option>
+                        <option value="2">Thỉnh thoảng</option>
+                        <option value="3">Thường xuyên</option>
+                        <option value="4">Luôn luôn</option>
+                    </select>
+                </div>
+                <button type="submit">Kiểm Tra EQ</button>
+            </form>
+            <div class="result" id="eqResult"></div>
+        </section>
+
+        <!-- Phần bài test trầm cảm BECK -->
+        <section class="health-check-section">
+            <h2><i class="fas fa-sad-tear"></i> Bài Test Trầm Cảm BECK</h2>
+            <form id="beckForm">
+                <div class="input-group">
+                    <label for="beckQuestion1">1. Bạn có cảm thấy buồn bã hoặc trống rỗng không?</label>
+                    <select id="beckQuestion1" required>
+                        <option value="0">Không</option>
+                        <option value="1">Thỉnh thoảng</option>
+                        <option value="2">Thường xuyên</option>
+                        <option value="3">Luôn luôn</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="beckQuestion2">2. Bạn có mất hứng thú với các hoạt động yêu thích không?</label>
+                    <select id="beckQuestion2" required>
+                        <option value="0">Không</option>
+                        <option value="1">Thỉnh thoảng</option>
+                        <option value="2">Thường xuyên</option>
+                        <option value="3">Luôn luôn</option>
+                    </select>
+                </div>
+                <button type="submit">Kiểm Tra</button>
+            </form>
+            <div class="result" id="beckResult"></div>
+        </section>
+    </main>
+
+    <script>
+        // Tính BMI
+        document.getElementById("bmiForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const height = parseFloat(document.getElementById("height").value) / 100;
+            const weight = parseFloat(document.getElementById("weight").value);
+            const bmi = (weight / (height * height)).toFixed(2);
+            let resultText = `Chỉ số BMI của bạn là: ${bmi}. `;
+            if (bmi < 18.5) {
+                resultText += "Bạn đang thiếu cân.";
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                resultText += "Bạn có cân nặng bình thường.";
+            } else if (bmi >= 25 && bmi < 29.9) {
+                resultText += "Bạn đang thừa cân.";
+            } else {
+                resultText += "Bạn đang béo phì.";
+            }
+            document.getElementById("bmiResult").innerHTML = `<h3>${resultText}</h3>`;
+        });
+
+        // Tính BMR
+        document.getElementById("bmrForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const age = parseFloat(document.getElementById("age").value);
+            const gender = document.getElementById("gender").value;
+            const weight = parseFloat(document.getElementById("weightBMR").value);
+            const height = parseFloat(document.getElementById("heightBMR").value);
+            let bmr;
+            if (gender === "male") {
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else {
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+            document.getElementById("bmrResult").innerHTML = `<h3>Chỉ số BMR của bạn là: ${bmr.toFixed(2)} kcal/ngày.</h3>`;
+        });
+
+        // Tính nhịp tim nghỉ ngơi
+        document.getElementById("rhrForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const age = parseFloat(document.getElementById("ageRHR").value);
+            const rhr = 220 - age;
+            document.getElementById("rhrResult").innerHTML = `<h3>Nhịp tim nghỉ ngơi tối đa của bạn là: ${rhr} BPM.</h3>`;
+        });
+
+        // Bài kiểm tra EQ
+        document.getElementById("eqForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const eq1 = parseInt(document.getElementById("eqQuestion1").value);
+            const eq2 = parseInt(document.getElementById("eqQuestion2").value);
+            const total = eq1 + eq2;
+            let resultText;
+            if (total <= 4) {
+                resultText = "Bạn cần cải thiện trí tuệ cảm xúc của mình.";
+            } else if (total <= 6) {
+                resultText = "Bạn có trí tuệ cảm xúc ở mức trung bình.";
+            } else {
+                resultText = "Bạn có trí tuệ cảm xúc rất tốt!";
+            }
+            document.getElementById("eqResult").innerHTML = `<h3>${resultText}</h3>`;
+        });
+
+        // Bài test trầm cảm BECK
+        document.getElementById("beckForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const beck1 = parseInt(document.getElementById("beckQuestion1").value);
+            const beck2 = parseInt(document.getElementById("beckQuestion2").value);
+            const total = beck1 + beck2;
+            let resultText;
+            if (total <= 2) {
+                resultText = "Bạn không có dấu hiệu trầm cảm.";
+            } else if (total <= 4) {
+                resultText = "Bạn có dấu hiệu trầm cảm nhẹ.";
+            } else {
+                resultText = "Bạn có dấu hiệu trầm cảm nặng. Hãy tham khảo ý kiến bác sĩ.";
+            }
+            document.getElementById("beckResult").innerHTML = `<h3>${resultText}</h3>`;
+        });
+    </script>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</h3>
+                <p>Địa chỉ: 123 Đường Lê Thánh Tôn, Quận Thuận Hóa, Thành phố Huế, Việt Nam</p>
+                <p>Email: support@theodoisuckhoe.com</p>
+                <p>Điện thoại: 093 478 2395</p>
+            </div>
+            <div>
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="./index.html" style = "color:#f0f9ff">Trang chủ</a></li>
+                    <li><a href="./theodoisuckhoe.html" style = "color:#f0f9ff">Theo dõi sức khỏe</a></li>
+                    <li><a href="./benhthuonggap.html" style = "color:#f0f9ff">Bệnh thường gặp</a></li>
+                    <li><a href="./diendan.html" style = "color:#f0f9ff">Diễn đàn</a></li>
+                    <li><a href="./lienhe.html" style = "color:#f0f9ff">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Hệ Thống Theo Dõi Sức Khỏe Cá Nhân. All rights reserved.</p>
+    </footer>
+       <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4928715,4,8,210,40,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4928715&101" alt="" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
+</body>
+</html>

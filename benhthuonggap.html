@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bệnh Thường Gặp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Arial', sans-serif; }
+        body { background-color: #f0f9ff; }
+        header { background-color: #2a9d8f; color: white; padding: 1.5rem; text-align: center; height: 7.5rem;}
+        nav { background-color: #264653; padding: 1rem; }
+        nav ul { list-style: none; display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 5px; transition: all 0.3s; }
+        nav a:hover { background-color: #2a9d8f; }
+        .health-dashboard { padding: 2rem; max-width: 1200px; margin: 0 auto; }
+        .disease-section { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin: 2rem 0; }
+        .disease-section h2 { color: #2a9d8f; margin-bottom: 1rem; }
+        .disease-section h3 { color: #264653; margin-bottom: 1rem; }
+        .disease-section p { margin-bottom: 1rem; line-height: 1.6; }
+        .disease-section ul { margin-left: 2rem; }
+        .disease-section ul li { margin-bottom: 0.5rem; }
+        .disease-section img { max-width: 100%; height: auto; border-radius: 10px; margin-bottom: 1rem; }
+        footer {
+            background-color: #264653;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .footer-content div {
+            max-width: 300px;
+        }
+        .footer-content h3 {
+            color: #2a9d8f;
+            margin-bottom: 1rem;
+        }
+        .color-white {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BỆNH THƯỜNG GẶP</h1>
+        <p>Thông tin chi tiết về các bệnh thường gặp và cách điều trị</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="./index.html"><i class="fas fa-home"></i> Trang chủ</a></li>
+            <li><a href="./theodoisuckhoe.html"><i class="fas fa-heartbeat"></i> Theo dõi sức khỏe</a></li>
+            <li><a href="./benhthuonggap.html"><i class="fas fa-file-medical"></i> Bệnh thường gặp</a></li>
+            <li><a href="./diendan.html"><i class="fas fa-comments"></i> Diễn đàn</a></li>
+            <li><a href="./lienhe.html"><i class="fas fa-book-medical"></i> Liên hệ</a></li>
+        </ul>
+    </nav>
+    <main class="health-dashboard">
+        <!-- Bệnh do Virus -->
+        <section class="disease-section">
+            <h2>1. Bệnh do Virus</h2>
+            <h3 id = "1.1">1.1. Cảm lạnh</h3>
+            <img src="https://prod-cdn.pharmacity.io/blog/cam-lanh-2.jpg" alt="Cảm lạnh">
+            <p>Cảm lạnh là bệnh nhiễm virus đường hô hấp trên, thường do các loại virus như Rhinovirus gây ra. Triệu chứng bao gồm chảy nước mũi, nghẹt mũi, đau họng, ho, và sốt nhẹ.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Virus Rhinovirus, Coronavirus, hoặc Adenovirus.</li>
+                <li><strong>Triệu chứng:</strong> Chảy nước mũi, nghẹt mũi, đau họng, ho, sốt nhẹ, mệt mỏi.</li>
+                <li><strong>Điều trị:</strong> Nghỉ ngơi, uống nhiều nước, sử dụng thuốc giảm đau như Paracetamol.</li>
+                <li><strong>Phòng ngừa:</strong> Rửa tay thường xuyên, tránh tiếp xúc với người bệnh, giữ ấm cơ thể.</li>
+            </ul>
+
+            <h3 id = "1.2">1.2. Cúm</h3>
+            <img src="https://baolamdong.vn/file/e7837c02845ffd04018473e6df282e92/042024/220928-1-1-095406-280922-94_20240418182322.jpg" alt="Cúm">
+            <p>Cúm là bệnh do virus Influenza gây ra, với các triệu chứng như sốt cao, đau cơ, mệt mỏi, và ho khan.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Virus Influenza A, B, hoặc C.</li>
+                <li><strong>Triệu chứng:</strong> Sốt cao, đau cơ, mệt mỏi, ho khan, đau đầu, chảy nước mũi.</li>
+                <li><strong>Điều trị:</strong> Thuốc kháng virus như Tamiflu, nghỉ ngơi, uống nhiều nước.</li>
+                <li><strong>Phòng ngừa:</strong> Tiêm phòng cúm hàng năm, rửa tay thường xuyên.</li>
+            </ul>
+
+            <h3 id = "1.3">1.3. Viêm họng do virus</h3>
+            <img src="https://cdn.tgdd.vn/News/0/benh-viem-hong4-800x450.jpg" alt="Viêm họng do virus">
+            <p>Viêm họng do virus thường đi kèm với cảm lạnh hoặc cúm, gây đau họng, khó nuốt, và sốt nhẹ.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Virus như Rhinovirus, Adenovirus, hoặc Epstein-Barr virus.</li>
+                <li><strong>Triệu chứng:</strong> Đau họng, khó nuốt, sốt nhẹ, sưng hạch bạch huyết.</li>
+                <li><strong>Điều trị:</strong> Súc miệng bằng nước muối, uống nhiều nước, dùng thuốc giảm đau.</li>
+                <li><strong>Phòng ngừa:</strong> Tránh tiếp xúc với người bệnh, giữ ấm cổ họng.</li>
+            </ul>
+        </section>
+
+        <!-- Bệnh do Vi khuẩn -->
+        <section class="disease-section">
+            <h2>2. Bệnh do Vi khuẩn</h2>
+            <h3 id = "2.1">2.1. Viêm họng do liên cầu khuẩn</h3>
+            <img src="https://cdn.benhvienthucuc.vn/wp-content/uploads/2023/02/benh-viem-hyong-lien-cau-khuan-600x400.jpg" alt="Viêm họng do liên cầu khuẩn">
+            <p>Viêm họng do liên cầu khuẩn là bệnh nhiễm trùng cổ họng, gây đau họng dữ dội, sốt, và sưng hạch bạch huyết.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Liên cầu khuẩn nhóm A (Streptococcus pyogenes).</li>
+                <li><strong>Triệu chứng:</strong> Đau họng dữ dội, sốt, sưng hạch bạch huyết, khó nuốt.</li>
+                <li><strong>Điều trị:</strong> Kháng sinh như Penicillin hoặc Amoxicillin.</li>
+                <li><strong>Phòng ngừa:</strong> Rửa tay thường xuyên, tránh dùng chung đồ dùng cá nhân.</li>
+            </ul>
+
+            <h3 id = "2.2">2.2. Nhiễm trùng đường tiết niệu</h3>
+            <img src="https://cdn.tuoitre.vn/zoom/480_300/2018/11/17/photo-1-1542445377818514499874.jpg" alt="Nhiễm trùng đường tiết niệu">
+            <p>Nhiễm trùng đường tiết niệu thường do vi khuẩn E. coli gây ra, với các triệu chứng như đau rát khi đi tiểu, nước tiểu đục hoặc có máu.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Vi khuẩn E. coli, Klebsiella, hoặc Proteus.</li>
+                <li><strong>Triệu chứng:</strong> Đau rát khi đi tiểu, nước tiểu đục hoặc có máu, đau bụng dưới.</li>
+                <li><strong>Điều trị:</strong> Kháng sinh như Ciprofloxacin hoặc Nitrofurantoin.</li>
+                <li><strong>Phòng ngừa:</strong> Uống nhiều nước, vệ sinh vùng kín sạch sẽ.</li>
+            </ul>
+
+            <h3 id = "2.3">2.3. Ho gà</h3>
+            <img src="https://file.medinet.gov.vn//UploadImages/tyttrungchanh/images.jpg?w=900" alt="Ho gà">
+            <p>Ho gà là bệnh nhiễm trùng đường hô hấp do vi khuẩn Bordetella pertussis gây ra, với các cơn ho dữ dội và kéo dài.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Vi khuẩn Bordetella pertussis.</li>
+                <li><strong>Triệu chứng:</strong> Cơn ho dữ dội, khó thở, nôn mửa sau khi ho.</li>
+                <li><strong>Điều trị:</strong> Kháng sinh như Azithromycin, nghỉ ngơi, uống nhiều nước.</li>
+                <li><strong>Phòng ngừa:</strong> Tiêm phòng vắc-xin ho gà.</li>
+            </ul>
+        </section>
+
+        <!-- Bệnh do Vi khuẩn hoặc Virus -->
+        <section class="disease-section">
+            <h2>3. Bệnh do Vi khuẩn hoặc Virus</h2>
+            <h3 id = "3.1">3.1. Viêm phế quản</h3>
+            <img src="https://anphekids.com/wp-content/uploads/2020/06/benh-viem-phe-quan-cap-o-tre-em-khong-the-chu-quan-3-1024x631.jpg" alt="Viêm phế quản">
+            <p>Viêm phế quản là tình trạng viêm niêm mạc ống phế quản, thường do virus hoặc vi khuẩn gây ra, với triệu chứng ho kéo dài, khó thở, và đau ngực.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Virus (như Rhinovirus) hoặc vi khuẩn (như Streptococcus pneumoniae).</li>
+                <li><strong>Triệu chứng:</strong> Ho kéo dài, khó thở, đau ngực, sốt nhẹ.</li>
+                <li><strong>Điều trị:</strong> Thuốc giảm ho, thuốc kháng sinh nếu do vi khuẩn, nghỉ ngơi.</li>
+                <li><strong>Phòng ngừa:</strong> Tránh hút thuốc, giữ ấm cơ thể.</li>
+            </ul>
+
+            <h3 id = "3.2">3.2. Nhiễm trùng xoang</h3>
+            <img src="https://img.freepik.com/vector-premium/rinitis-alergica-o-icono-linea-sintomas-fiebre-fria_8071-52925.jpg" alt="Nhiễm trùng xoang">
+            <p>Nhiễm trùng xoang có thể do virus hoặc vi khuẩn gây ra, với các triệu chứng như nghẹt mũi, đau mặt, và chảy nước mũi đặc.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Virus (như Rhinovirus) hoặc vi khuẩn (như Streptococcus pneumoniae).</li>
+                <li><strong>Triệu chứng:</strong> Nghẹt mũi, đau mặt, chảy nước mũi đặc, sốt nhẹ.</li>
+                <li><strong>Điều trị:</strong> Thuốc kháng sinh nếu do vi khuẩn, thuốc thông mũi, nghỉ ngơi.</li>
+                <li><strong>Phòng ngừa:</strong> Tránh tiếp xúc với người bệnh, giữ ấm cơ thể.</li>
+            </ul>
+
+            <h3 id = "3.3">3.3. Viêm tai giữa</h3>
+            <img src="https://benhvienvanhanh.vn/wp-content/uploads/2020/01/2020_01_16/48c546ad3c884b4752125e5e1d903023.jpg" alt="Viêm tai giữa">
+            <p>Viêm tai giữa thường do vi khuẩn hoặc virus gây ra, với triệu chứng đau tai, sốt, và khó nghe.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Vi khuẩn (như Streptococcus pneumoniae) hoặc virus (như Rhinovirus).</li>
+                <li><strong>Triệu chứng:</strong> Đau tai, sốt, khó nghe, chảy dịch từ tai.</li>
+                <li><strong>Điều trị:</strong> Thuốc giảm đau, thuốc kháng sinh nếu do vi khuẩn, nghỉ ngơi.</li>
+                <li><strong>Phòng ngừa:</strong> Giữ vệ sinh tai, tránh tiếp xúc với người bệnh.</li>
+            </ul>
+        </section>
+
+        <!-- Bệnh khác -->
+        <section class="disease-section">
+            <h2>4. Các Bệnh Khác</h2>
+            <h3 id = "4.1">4.1. Đau dạ dày</h3>
+            <img src="https://img.lovepik.com/free-png/20210927/lovepik-stomachache-png-image_401581784_wh1200.png" alt="Đau dạ dày">
+            <p>Đau dạ dày là tình trạng viêm hoặc loét niêm mạc dạ dày, thường do vi khuẩn Helicobacter pylori hoặc thói quen ăn uống không lành mạnh.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Vi khuẩn Helicobacter pylori, stress, ăn uống không điều độ.</li>
+                <li><strong>Triệu chứng:</strong> Đau bụng, buồn nôn, ợ chua, khó tiêu.</li>
+                <li><strong>Điều trị:</strong> Thuốc kháng acid, thuốc kháng sinh nếu do vi khuẩn, thay đổi chế độ ăn.</li>
+                <li><strong>Phòng ngừa:</strong> Ăn uống điều độ, tránh stress, hạn chế rượu bia.</li>
+            </ul>
+
+            <h3 id = "4.2">4.2. Viêm da</h3>
+            <img src="https://pacificcross.com.vn/wp-content/uploads/2023/03/viem-da-co-dia-1.jpg" alt="Viêm da">
+            <p>Viêm da là tình trạng viêm nhiễm trên da, có thể do dị ứng, vi khuẩn, hoặc nấm gây ra.</p>
+            <ul>
+                <li><strong>Nguyên nhân:</strong> Dị ứng, vi khuẩn, nấm, hoặc tiếp xúc với hóa chất.</li>
+                <li><strong>Triệu chứng:</strong> Ngứa, đỏ da, phát ban, bong tróc da.</li>
+                <li><strong>Điều trị:</strong> Thuốc kháng histamine, thuốc kháng sinh hoặc kháng nấm, kem bôi ngoài da.</li>
+                <li><strong>Phòng ngừa:</strong> Giữ vệ sinh da, tránh tiếp xúc với chất gây dị ứng.</li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h3>Hệ Thống Theo Dõi Sức Khỏe Cá Nhân</h3>
+                <p>Địa chỉ: 123 Đường Lê Thánh Tôn, Quận Thuận Hóa, Thành phố Huế, Việt Nam</p>
+                <p>Email: support@theodoisuckhoe.com</p>
+                <p>Điện thoại: 093 478 2395</p>
+            </div>
+            <div>
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="./index.html" style = "color:#f0f9ff">Trang chủ</a></li>
+                    <li><a href="./theodoisuckhoe.html" style = "color:#f0f9ff">Theo dõi sức khỏe</a></li>
+                    <li><a href="./benhthuonggap.html" style = "color:#f0f9ff">Bệnh thường gặp</a></li>
+                    <li><a href="./diendan.html" style = "color:#f0f9ff">Diễn đàn</a></li>
+                    <li><a href="./lienhe.html" style = "color:#f0f9ff">Liên hệ</a></li>
+                </ul>
+            </div>
+        </div>
+        <p>&copy; 2025 Hệ Thống Theo Dõi Sức Khỏe Cá Nhân. All rights reserved.</p>
+    </footer>
+       <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
+<!-- Histats.com  START  (aync)-->
+    <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4928715,4,8,210,40,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?4928715&101" alt="" border="0"></a></noscript>
+    <!-- Histats.com  END  -->
+</body>
+</html>
